@@ -17,7 +17,8 @@ app.get('/', (req, res) => {
   // res.send(`<h1>${req.hello}Hello there</h1>`);
   // you don't need to set content type header as express will detect it
   // res.sendFile(path.resolve(__dirname, 'views', 'login.htm'));
-  // EJS: you don't need to give the file path
+  // EJS: you don't need to give the file path as express expects
+  // all dynamic templates to reside in a folder called views.
   res.render('login', { pageTitle: 'My Login Page' });
 });
 
