@@ -15,6 +15,11 @@ app.set('views', './views');
 // Do not need to require ejs as express will get it
 app.set('view engine', 'ejs');
 
+
+// There is a built-in middleware function to serve static assets such as js, css, imgs, html
+app.use(express.static('public'));
+
+
 // To serve files, we use res.sendFile method
 app.get('/', (req, res) => {
   // res.send(`<h1>${req.hello}Hello there</h1>`);
