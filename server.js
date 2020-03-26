@@ -9,28 +9,20 @@ const app = express();
 // cloud providers set the port to the available instance
 app.set('port', process.env.PORT || 3000);
 
+// Do not need to require ejs as express will get it
+app.set('view engine', 'ejs');
 
-const helloMiddleware = (req, res, next) => {
-  req.hello = 'Hello..you there...';
-  next();
-};
-
-// app.use('/dashboard', middleware) will ensure that the middleare runs for all
-// routes with /dashboard
-app.use(helloMiddleware);
-
-// This is a get request, the next argument can be called if the
-// the request needs to be sent to another function
-// commonly used with middlewares
-// we are manually injecting the middleware
-app.get('/', helloMiddleware, (req, res, next) => {
-  res.send(`<h1>${req.hello}Hello there</h1>`);
-  next();
+// To serve files, we use res.sendFile method
+app.get('/', (req, res) => {
+  // res.send(`<h1>${req.hello}Hello there</h1>`);
+  // you don't need to set content type header as express will detect it
+  // res.sendFile(path.resolve(__dirname, 'views', 'login.htm'));
+  // EJS: you don't need to give the file path
+  res.render('login', { pageTitle: 'My Login Page' });
 });
 
-app.get('/dashboard', (req, res, next) => {
+app.get('/dashboard', (req, res) => {
   res.send('<h1>This is a dashboard</h1>');
-  next();
 });
 
 app.listen(app.get('port'), () => {
