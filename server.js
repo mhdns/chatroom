@@ -9,6 +9,9 @@ const app = express();
 // cloud providers set the port to the available instance
 app.set('port', process.env.PORT || 3000);
 
+// This is default, change the path and express will look there for dynamic templates
+app.set('views', './views');
+
 // Do not need to require ejs as express will get it
 app.set('view engine', 'ejs');
 
