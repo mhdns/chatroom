@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const express = require('express');
 // By default will go to index.js
 const chatroom = require('./app');
