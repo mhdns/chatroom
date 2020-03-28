@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+const path = require('path');
 const express = require('express');
 // By default will go to index.js
 const chatroom = require('./app/routes');
@@ -13,6 +14,10 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 app.use('/', chatroom.router);
+
+app.get('/*', (req, res) => {
+  res.status(404).sendFile(path.resolve(__dirname, 'views', '404.htm'));
+});
 
 app.listen(app.get('port'), () => {
   console.log(`app running in port ${app.get('port')}...`);
