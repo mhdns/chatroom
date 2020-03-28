@@ -1,8 +1,14 @@
 /* eslint-disable no-console */
 const path = require('path');
 const express = require('express');
+const dotenv = require('dotenv');
 // By default will go to index.js
 const chatroom = require('./app/routes');
+
+if (process.env.NODE_ENV !== 'production') {
+  dotenv.config();
+}
+
 
 // Base application
 const app = express();
