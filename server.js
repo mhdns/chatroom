@@ -4,6 +4,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 // By default will go to index.js
 const chatroom = require('./app/routes');
+const session = require('./app/session');
 
 if (process.env.NODE_ENV !== 'production') {
   dotenv.config();
@@ -19,6 +20,7 @@ app.set('view engine', 'ejs');
 
 app.use(express.static('public'));
 
+app.use(session);
 app.use('/', chatroom.router);
 
 app.get('/*', (req, res) => {
