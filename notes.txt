@@ -1,0 +1,14 @@
+- HTTP is stateles, so every request is considered unique 
+- Therefore the current request and the next request does not have connectivity
+- Sessions allows for Data Persistance
+- Sessions can be deployed in a few ways, through the HTTP reqs, hidden form fields and cookies
+- The req will have the sessionID and if it expires the user will be logout
+- Hidden form fields are forms with input with the type of hidden containing session details,
+this forms will be passed from one page to another
+- Cookies are small files (less than 4kb) stored in the browser, express uses this
+
+- We will be using cookies and we require the express-session module to implement it and use connect-mongo
+for express-session to communicate with mongo-db
+- you will need a secret key to sign the session to ensure that it was not tampered with
+
+
