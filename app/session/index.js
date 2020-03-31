@@ -1,3 +1,4 @@
+// Outdated tutorial - Only the theory and the fundementals are appropriate
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const dotenv = require('dotenv');
